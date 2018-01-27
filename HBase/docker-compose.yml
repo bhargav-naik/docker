@@ -1,10 +1,9 @@
 version: '3'
 services:
   hbase:
-    image: hbase
-    build: .
+    image: bhargavnaik/hbase
+    hostname: hbase
     ports:
-      - 2181:2181
       - 8080:8080
       - 8085:8085
       - 9090:9090
@@ -15,3 +14,16 @@ services:
       - 16301:16301
     volumes:
       - '~/work/docker-volumes:/data'
+    depends_on:
+      - zk
+  zk:
+    image: zookeeper:3.4.11
+    hostname: zk
+    restart: always
+    ports:
+      - 2181:2181
+    environment:
+      ZOO_MY_ID: 1
+    volumes:
+      - '~/work/docker-volumes/zookeeper/data:/data'
+      - '~/work/docker-volumes/zookeeper/log:/datalog'  
