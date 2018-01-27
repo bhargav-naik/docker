@@ -1,9 +1,14 @@
-# docker
+# DockerFiles
 
-HBASE
+## HBASE
+- cd ./HBase
+- Command to start 
+: ./hbase-docker.sh start
+- Command to stop
+: ./hbase-docker.sh stop
 
-ZK
+## ZK
 
-KAFKA
+## KAFKA
 
-REDIS
+## REDIS

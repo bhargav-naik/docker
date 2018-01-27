@@ -47,8 +47,7 @@ EXPOSE 2181 8080 8085 9090 9095 16000 16010 16201 16301
 
 # Copy hbase-site.xml
 ADD conf/hbase-site.xml /usr/share/hbase/conf/hbase-site.xml
-ADD hbase.sh /usr/share/hbase/bin/hbase.sh
+ADD entrypoint.sh /usr/share/hbase/bin/entrypoint.sh
 
-WORKDIR /usr/share/hbase/logs
 ENV PATH=$PATH:/usr/share/hbase/bin/
-CMD /usr/share/hbase/bin/hbase.sh
+CMD /usr/share/hbase/bin/entrypoint.sh
