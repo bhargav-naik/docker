@@ -24,6 +24,7 @@ EXPOSE 8080 8085 9090 9095 16000 16010 16201 16301
 # Copy hbase-site.xml
 ADD conf/hbase-site.xml /usr/share/hbase/conf/hbase-site.xml
 ADD entrypoint.sh /usr/share/hbase/bin/entrypoint.sh
+ADD create-tables.sh /usr/share/hbase/bin/create-tables.sh
 
 ENV PATH=$PATH:/usr/share/hbase/bin/
 CMD /usr/share/hbase/bin/entrypoint.sh
