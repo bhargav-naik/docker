@@ -10,8 +10,8 @@ https://hub.docker.com/r/bhargavnaik/
 
 ### Command to startup dev infra setup
 - cd dockerCompose
-- ./hbase-docker.sh start
+- ./docker.sh start
 
 ### Command to shutdown dev infra setup
 - cd dockerCompose
-- ./hbase-docker.sh stop
+- ./docker.sh stop
