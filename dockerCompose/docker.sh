@@ -1,9 +1,10 @@
 #!/bin/bash -x
 
 function stop() {
-  docker-compose down
+  docker-compose down --rmi local
   rm -rf ~/work/docker-volumes/hbase
   rm -rf ~/work/docker-volumes/zookeeper
+  rm -rf ~/work/docker-volumes/kafka
 }
 
 function start() {

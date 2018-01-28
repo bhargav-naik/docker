@@ -30,13 +30,15 @@ RUN \
 
 ADD config /kafka/config
 ADD start.sh /start.sh
+ADD create-topics.sh /create-topics.sh
 
 # Set up a user to run Kafka
 RUN \
  groupadd kafka && \
  useradd -d /kafka -g kafka -s /bin/false kafka && \
  chown -R kafka:kafka /kafka /data && \
- chmod 755 /start.sh
+ chmod 755 /start.sh && \
+ chmod 755 /create-topics.sh
 
 USER kafka
 ENV PATH /kafka/bin:$PATH
@@ -44,7 +46,7 @@ ENV PATH /kafka/bin:$PATH
 WORKDIR /kafka
 
 # broker, jmx
-EXPOSE 9092 ${JMX_PORT}
+EXPOSE 9092 7203
 VOLUME [ "/data"]
 
 CMD ["/start.sh"]
